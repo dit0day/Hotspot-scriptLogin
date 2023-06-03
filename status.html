@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>Hotspot / Status</title>
+  <link rel="icon" href="img/favicon.ico" sizes="32x32">
+    <!-- CORE CSS-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+
+<script language="JavaScript">
+<!--
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+	if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+	popup = open('$(link-advert)', 'hotspot_advert', '');
+	setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+//-->
+</script>
+</head>
+<body style="background-color:#455a64">
+<body bottommargin="0" topmargin="0" leftmargin="0" rightmargin="0"
+$(if advert-pending == 'yes')
+	onLoad="openAdvert()"
+$(endif)
+>
+
+
+
+<br><br><br><br><br>
+    <center><div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal darken-1"><table width="50%" height="50%">
+<tr>
+<td align="center" valign="middle">
+<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+<table border="1" class="tabula">
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1" align="right">Fast Link, GO!</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet" style="background-color: #455a64";>
+    <div class="modal-content"><center>
+      <font color="white"><h4>Fast Link</h4></font>
+<a class="waves-effect waves-light btn blue" ><i class="material-icons left" href="android.com">android</i>Android</a>
+<a class="waves-effect waves-light btn red" href="mail.google.com"><i class="material-icons left">mail</i>Gmail</a>
+<a class="waves-effect waves-light btn light-blue darken-4" href="facebook.com"><i class="material-icons left">chat bubble</i>Facebook</a>
+<a class="waves-effect waves-light btn light-blue darken-1"><i class="material-icons left">people</i>Twitter</a>
+<br><br>
+<a class="waves-effect waves-light btn red"><i class="material-icons left">person add</i>Google+</a>
+<a class="waves-effect waves-light btn green accent-3"><i class="material-icons left">shop</i>Play Store</a>
+<a class="waves-effect waves-light btn brown"><i class="material-icons left">store</i>Instagram</a>
+<a class="waves-effect waves-light btn green accent-3"><i class="material-icons left">map</i>Maps</a>
+<br><br>
+<a class="waves-effect waves-light btn grey darken-1"><i class="material-icons left">mail</i>Yahoo</a>
+<a class="waves-effect waves-light btn light-blue darken-1"><i class="material-icons left">g translate</i>Translate</a>
+<a class="waves-effect waves-light btn amber darken-4"><i class="material-icons left">album</i>Soundcloud</a>
+<a class="waves-effect waves-light btn red accent-4"><i class="material-icons left">movie</i>Youtube</a>
+
+
+
+
+
+
+  </div>
+          
+
+	<tr><td align="center"><font color="white">IP Address&nbsp;:</td><td><font color="white">$(ip)</td></tr>
+	<tr><td align="center"><font color="white">Bytes Up/Down&nbsp;:</td><td><font color="white">$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+	<tr><td align="center"><font color="white">Connected/Left&nbsp;:</td><td><font color="white">$(uptime) / $(session-time-left)</td></tr>
+	<tr><td align="center"><font color="white">Connected&nbsp;:</td><td><font color="white">$(uptime)</td></tr>
+	<tr><td align="center"><font color="white">Status Refresh&nbsp;:</td><td><font color="white">$(refresh-timeout)</td>
+</table>
+</div></div>
+<br>
+<!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+<button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+<!-- end of user manager link -->
+  <center><button class="btn waves-effect waves-light" type="submit" value="log off">Logout
+    <i class="material-icons right">send</i>
+  </button>
+
+ 
+ 
+  
+</form>
+
+</td>
+</table>
+</body>
+
+  <script>
+	$(document).ready(function() {
+	  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+	  $('.modal-trigger').leanModal();
+	});
+  </script>
+
+  <!-- jQuery Library -->
+  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+  <!--materialize js-->
+  <script type="text/javascript" src="js/materialize.js"></script>
+  <!--prism-->
+  <script type="text/javascript" src="js/prism.js"></script>
+  <!--scrollbar-->
+  <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+
+  <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+  <script type="text/javascript" src="js/plugins.js"></script>
+</html>
